@@ -37,5 +37,3 @@ Sales_Rep (EmployeeID, Salary)
 
 Studio (StudioID, Studio_Name, Zip, State, City, Street, Instagram, Facebook)
 	Prmary Key (StudioID)
-
-test1 Gabi
