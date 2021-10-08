@@ -2,7 +2,8 @@ Customer (CustomerID, FirstName, LastName, Email, Phone, Weight, Height, Zip, Ci
 	Primary Key (CustomerID, Email)
 	Foreign Key (CustomerID) Refernces Customer (CustomerID)
 
-Order (OrderID, CustomerID, OrderType) 	Primary Key (OrderID)
+Order (OrderID, CustomerID, OrderType) 	
+	Primary Key (OrderID)
 	Foreign Key (CustomerID) References Customer (CustomerID)
 
 OrderDetail (OrderID, ProductID, Quantity, Order_Date, Current_Price)
@@ -10,9 +11,10 @@ OrderDetail (OrderID, ProductID, Quantity, Order_Date, Current_Price)
 	Foreign Key (OrderID) References Order (OrderID)
 	Foreign Key (ProductID) References Product (ProductID)
 
-Product (ProductID, Product_Name, Product_Price,) 	Primary Key (ProductID)  Product_Membership (ProductID, MemebershipType, Duration FK or Partial? ) 	Primary	 Key (ProductID) 	Foreign Key  (ProductID) References Product (ProductID)
- Product_Merchandise (ProductID, Brand, Size FK or Partial?) 	Primary	 Key (ProductID)  	Foreign Key  (ProductID) References Product (ProductID)
- Membership (MembershipID, CustomerID, FK_Product_Membership, Start_Date, End_Date) 	Primary	 Key 	Foreign Key 
+Product (ProductID, Product_Name, Product_Price,) 	
+	Primary Key (ProductID)  Product_Membership (ProductID, MemebershipType, Duration FK or Partial? ) 	Primary	 Key (ProductID) 	Foreign Key  (ProductID) References Product (ProductID)
+ 	Product_Merchandise (ProductID, Brand, Size FK or Partial?) 	Primary	 Key (ProductID)  	Foreign Key  (ProductID) References Product (ProductID)
+ 	Membership (MembershipID, CustomerID, FK_Product_Membership, Start_Date, End_Date) 	Primary	 Key 	Foreign Key 
 
 Course (CourseID, Course_Name, Category, Description, Duration)
 	Primary Key (CourseID)
