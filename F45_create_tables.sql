@@ -1,3 +1,10 @@
+DROP DATABASE group_3_project;
+
+CREATE DATABASE group_3_project;
+
+use group_3_project;
+
+
 DROP TABLE IF EXISTS Customer ;
 
 DROP TABLE IF EXISTS Order_Header;
@@ -23,6 +30,8 @@ DROP TABLE IF EXISTS  Sales_Rep;
 DROP TABLE IF EXISTS Studio_Admin ;
 
 DROP TABLE IF EXISTS Course;
+
+DROP TABLE IF EXISTS Class;
 
 DROP TABLE IF EXISTS Schedule;
 
@@ -211,34 +220,38 @@ CREATE TABLE Employee_Phone (
 
 CREATE TABLE Course (
   CourseID INT,
-  EmployeeID INT,
-  StudioID INT,
-  CourseName TINYINT,
-  Category TINYINT,
-  Description VARCHAR(1000),
-  Duralion VARCHAR(50),
   PRIMARY KEY (CourseID),
-  CONSTRAINT FK_Course_StudioID
-    FOREIGN KEY (StudioID)
-      REFERENCES Studio(StudioID),
-  CONSTRAINT FK_Course_EmployeeID
-    FOREIGN KEY (EmployeeID)
-      REFERENCES Trainer(EmployeeID)
 );
 
-
-CREATE TABLE Schedule (
-  MembershipID INT,
+CREATE TABLE Class (
+  ClassID INT,
+  StudioID INT,
+  EmployeeID INT,
   CourseID INT,
   Date DATE,
   Time TIME,
-  PRIMARY KEY (MembershipID, CourseID),
+  PRIMARY KEY (ClassID),
+  CONSTRAINT FK_Class_StudioID
+    FOREIGN KEY (StudioID)
+      REFERENCES Studio(StudioID),
+  CONSTRAINT FK_Class_EmployeeID
+    FOREIGN KEY (EmployeeID)
+      REFERENCES Trainer(EmployeeID),
+  CONSTRAINT FK_Class_CourseID
+    FOREIGN KEY (CourseID)
+      REFERENCES Course(CourseID)
+);
+
+CREATE TABLE Schedule (
+  MembershipID INT,
+  ClassID INT,
+  PRIMARY KEY (MembershipID, ClassID),
   CONSTRAINT FK_Schedule_MembershipID
     FOREIGN KEY (MembershipID)
       REFERENCES Membership(MembershipID),
-  CONSTRAINT FK_Schedule_CourseID
-    FOREIGN KEY (CourseID)
-      REFERENCES Studio(StudioID)
+  CONSTRAINT FK_Schedule_ClassID
+    FOREIGN KEY (ClassID)
+      REFERENCES Class(ClassID)
 );
 
 
