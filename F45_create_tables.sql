@@ -94,6 +94,14 @@ CREATE TABLE Product (
   PRIMARY KEY (ProductID)
 );
 
+CREATE TABLE ProductPrice_History (
+  ProductID INT,
+  ProductName VARCHAR(30),
+  ProductPrice INT,
+  Date_Updated DATE,
+  PRIMARY KEY (ProductID)
+);
+
 CREATE TABLE OrderLine (
   OrderID INT,
   ProductID INT,
