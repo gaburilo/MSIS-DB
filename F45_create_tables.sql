@@ -228,7 +228,7 @@ CREATE TABLE Employee_Phone (
 
 CREATE TABLE Course (
   CourseID INT,
-  CourseName VARCHAR(50)
+  CourseName VARCHAR(50),
   PRIMARY KEY (CourseID),
 );
 
