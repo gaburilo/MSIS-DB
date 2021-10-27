@@ -84,8 +84,6 @@ CREATE TABLE Order_Header (
       REFERENCES Customer(CustomerID )
 );
 
-
-
 CREATE TABLE Product (
   ProductID INT,
   ProductName VARCHAR(30),
@@ -125,7 +123,6 @@ CREATE TABLE ProductMembership (
     FOREIGN KEY (ProductID)
       REFERENCES Product(ProductID)
 );
-
 
 CREATE TABLE ProductMerchandise (
   ProductID INT,
@@ -196,7 +193,6 @@ CREATE TABLE Studio_Admin (
 
 CREATE TABLE Trainer (
   EmployeeID  INT,
-  CourseID VARCHAR(50),
   HourlyRate VARCHAR(50),
   Certification TINYINT,
   Rating TINYINT,
@@ -205,7 +201,6 @@ CREATE TABLE Trainer (
     FOREIGN KEY (EmployeeID )
       REFERENCES Employee(EmployeeID)
 );
-
 
 CREATE TABLE Employee_Email (
   EmployeeID  INT,
