@@ -52,7 +52,7 @@ CREATE TABLE Customer (
   Street VARCHAR(50),
   City VARCHAR(50),
   State VARCHAR(2),
-  Zip SMALLINT,
+  Zip CHAR(5),
   PRIMARY KEY (CustomerID)
 );
 
@@ -103,7 +103,7 @@ CREATE TABLE OrderLine (
   OrderID INT,
   ProductID INT,
   Quantity INT,
-  Order_Date DATETIME,
+  Order_Date DATE,
   Current_Price  FLOAT,
   PRIMARY KEY (OrderID, ProductID),
   CONSTRAINT FK_OrderLine_OrderID
@@ -155,7 +155,7 @@ CREATE TABLE Studio (
   Street VARCHAR(50),
   City VARCHAR(50),
   State VARCHAR(2),
-  Zip SMALLINT,
+  Zip CHAR(5),
   Instagram VARCHAR(50),
   Facebook VARCHAR(50),
   PRIMARY KEY (StudioID)
