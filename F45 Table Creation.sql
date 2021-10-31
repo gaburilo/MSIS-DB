@@ -12,9 +12,9 @@ DROP TABLE IF EXISTS OrderLine ;
 
 DROP TABLE IF EXISTS Product ;
 
-DROP TABLE IF EXISTS Product_Membership;
+DROP TABLE IF EXISTS ProductMembership;
 
-DROP TABLE IF EXISTS Product_Merchandise ;
+DROP TABLE IF EXISTS ProductMerchandise ;
 
 DROP TABLE IF EXISTS Membership ;
 
