@@ -2322,6 +2322,7 @@ INSERT INTO dbo.Product(ProductID, ProductName, ProductPrice) VALUES (6, 'Womens
 INSERT INTO dbo.Product(ProductID, ProductName, ProductPrice) VALUES (7, 'Mens Techloom Pro - Ombre', 140);
 INSERT INTO dbo.Product(ProductID, ProductName, ProductPrice) VALUES (8, 'Mens Techloom Pro - Black', 140);
 INSERT INTO dbo.Product(ProductID, ProductName, ProductPrice) VALUES (9, 'Mens Techloom Pro - Split', 140);
+INSERT INTO dbo.Product(ProductID, ProductName, ProductPrice) VALUES (10, 'Free-Bag', 0);
 
 --Insert ProductPrice_History
 
