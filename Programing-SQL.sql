@@ -101,12 +101,52 @@ EXECUTE addCustomer
   @Email = 'khds@gmail.com',
   @ProductID = 10
   
-
-
   Select * from Customer;
   SELECT * from Customer_Email;
   SELECT * FROM Order_Header;
+  SELECT * from Membership;
   SELECT * from OrderLine;
   SELECT * from Product;
 
-  
+  --- User-Defined Functions
+
+CREATE OR ALTER FUNCTION CalculateTotal
+(	@Quantity INT,
+	@Product_Price INT
+)
+
+RETURNS FLOAT
+AS
+BEGIN
+	RETURN (@Quantity * @Product_Price);
+END;
+
+SELECT ol.OrderId,
+		CONCAT(c.FirstName,' ',c.LastName) as CustomerName,
+		SUM(dbo.CalculateTotal(ol.Quantity,ol.Current_Price) ) as Total
+FROM OrderLine as ol
+INNER JOIN Order_Header as oh ON ol.OrderID=oh.OrderID
+INNER JOIN Customer as c ON oh.CustomerID=c.CustomerID
+Group By ol.OrderID,CONCAT(c.FirstName,' ',c.LastName);
+
+----------------------------------------------------------------------------------
+
+CREATE OR ALTER FUNCTION MembershipXMonth
+(	@Start_Date DATE
+)
+
+RETURNS INT
+AS
+BEGIN
+	RETURN  DATEPART(month, @Start_Date);
+END;
+
+
+
+Select (dbo.MembershipMonth (Start_Date)) as Month, count(CustomerId) as 'Total Customers'
+  from Membership
+  Group by (dbo.MembershipMonth (Start_Date))
+
+
+
+
